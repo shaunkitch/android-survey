@@ -1,0 +1,110 @@
+package usc.cs.survey;
+
+import android.app.Application;
+
+public class CheckBoxData extends Application {
+	
+	// temp data for each checkBox and combine them latter
+	private int[] tempData = new int [24];
+    //The String to save 
+    private StringBuffer MonAvailableHrs = new StringBuffer();
+    private StringBuffer TueAvailableHrs = new StringBuffer();
+    private StringBuffer WedAvailableHrs = new StringBuffer();
+    private StringBuffer ThuAvailableHrs = new StringBuffer();
+    private StringBuffer FriAvailableHrs = new StringBuffer();
+    private StringBuffer SatAvailableHrs = new StringBuffer();
+    private StringBuffer SunAvailableHrs = new StringBuffer();
+	
+	public CheckBoxData()
+	{
+	
+	}
+	
+	public void SetTPData(int index, int val)
+	{
+		tempData[index] = val;
+	}
+	
+	public int GetTPData(int index)
+	{
+		return tempData[index];
+	}
+	
+	public int[] GetTPAry()
+	{
+		return tempData;
+	}
+	
+	public void AppendMonAvailableHrs(int value)
+	{
+		MonAvailableHrs.append(value);
+	}
+	
+	public void AppendTueAvailableHrs(int value)
+	{
+		TueAvailableHrs.append(value);
+	}
+	
+	public void AppendWedAvailableHrs(int value)
+	{
+		WedAvailableHrs.append(value);
+	}
+	
+	public void AppendThuAvailableHrs(int value)
+	{
+		ThuAvailableHrs.append(value);
+	}
+	
+	public void AppendFriAvailableHrs(int value)
+	{
+		FriAvailableHrs.append(value);
+	}
+	
+	public void AppendSatAvailableHrs(int value)
+	{
+		SatAvailableHrs.append(value);
+	}
+	
+	public void AppendSunAvailableHrs(int value)
+	{
+		SunAvailableHrs.append(value);
+	}
+	
+	
+	
+	public StringBuffer GetMonAvailableHrs()
+	{
+		return MonAvailableHrs;
+	}
+	
+	public StringBuffer GetTueAvailableHrs()
+	{
+		return TueAvailableHrs;
+	}
+	
+	public StringBuffer GetWedAvailableHrs()
+	{
+		return WedAvailableHrs;
+	}
+	
+	public StringBuffer GetThuAvailableHrs()
+	{
+		return ThuAvailableHrs;
+	}
+	
+	public StringBuffer GetFriAvailableHrs()
+	{
+		return FriAvailableHrs;
+	}
+	
+	public StringBuffer GetSatAvailableHrs()
+	{
+		return SatAvailableHrs;
+	}
+	
+	public StringBuffer GetSunAvailableHrs()
+	{
+		return SunAvailableHrs;
+	}
+	
+}

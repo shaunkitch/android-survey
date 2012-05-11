@@ -1,0 +1,648 @@
+package usc.cs.survey;
+
+import java.util.ArrayList;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class Screen2 extends Activity {
+
+	/** Called when the activity is first created. */
+	@Override
+	public void onCreate(Bundle savedInstanceState) 
+	{
+	    super.onCreate(savedInstanceState);
+	    setContentView(R.layout.main2);
+	    
+	    // Save share preferences
+
+	    // array to store the temp data (0 or 1) for 24 checkboxs and append them to String buffer when Next or Back is clicked
+	    int[] checkTemp = new int[24];
+	    
+	    // the entity of week class
+	    final Week myWeek = new Week();
+	    
+	    // The entity of CheckBoxData Class (AvailableHrs)
+		final CheckBoxData myCBData = new CheckBoxData();
+	  
+	    
+	    //The textView that shows what day to modify
+	    final TextView DayView = (TextView) findViewById(R.id.DayView);
+	    DayView.setText(myWeek.getArtElt(0));
+	    
+
+	    // Next Button
+	    final Button NextBt = (Button) findViewById(R.id.Next);
+	    NextBt.setOnClickListener(new View.OnClickListener() {
+			
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+			    myWeek.addNextCount();
+				DayView.setText(myWeek.getArtElt(myWeek.getNextCount()%7 ));
+				
+				//Show the result of the 24 Checkbox
+				for(int i = 0 ; i < 24 ; i++)
+					myCBData.AppendAvailableHrs(myCBData.GetTPData(i));
+				
+				System.out.println(myCBData.GetAvailableHrs());
+				//Toast.makeText(getBaseContext(), myCBData.GetAvailableHrs(), 	Toast.LENGTH_SHORT).show(); 
+				
+			}
+		});
+	    
+	    
+	    //final CheckBox checkBox1 = (CheckBox) findViewById(R.id.checkBox1);
+	    
+	    // If CheckBox1 is Clicked 
+	    CheckBox cb1 = (CheckBox) findViewById(R.id.checkBox1); 
+	    cb1.setOnCheckedChangeListener(new OnCheckedChangeListener() 
+	    {
+			
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) 
+			{
+
+				if (buttonView.isChecked()) 
+				{ 
+					//Set temp data to 1
+					myCBData.SetTPData(0, 1);
+					//myCBData.GetTPData(0)
+					Toast.makeText(getBaseContext(), "+++++++++++", Toast.LENGTH_SHORT).show(); 
+				} 
+				else 
+				{ 
+					//Set temp data to 0
+					myCBData.SetTPData(0, 0);
+					//Toast.makeText(getBaseContext(), "UnChecked", 	Toast.LENGTH_SHORT).show(); 
+				} 
+			}
+	    });
+	    
+	    // If CheckBox2 is Clicked 
+	    CheckBox cb2 = (CheckBox) findViewById(R.id.checkBox2); 
+	    cb2.setOnCheckedChangeListener(new OnCheckedChangeListener() 
+	    {
+			
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) 
+			{
+
+				if (buttonView.isChecked()) 
+				{ 
+					//Set temp data to 1
+					myCBData.SetTPData(1, 1);
+					//Toast.makeText(getBaseContext(), "Checked", Toast.LENGTH_SHORT).show(); 
+				} 
+				else 
+				{ 
+					//Set temp data to 0
+					myCBData.SetTPData(1, 0);
+					//Toast.makeText(getBaseContext(), "UnChecked", 	Toast.LENGTH_SHORT).show(); 
+				} 
+			}
+	    });
+	    
+	    // If CheckBox3 is Clicked 
+	    CheckBox cb3 = (CheckBox) findViewById(R.id.checkBox3); 
+	    cb1.setOnCheckedChangeListener(new OnCheckedChangeListener() 
+	    {
+			
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) 
+			{
+
+				if (buttonView.isChecked()) 
+				{ 
+					//Set temp data to 1
+					myCBData.SetTPData(2, 1);
+					//Toast.makeText(getBaseContext(), "Checked", Toast.LENGTH_SHORT).show(); 
+				} 
+				else 
+				{ 
+					//Set temp data to 0
+					myCBData.SetTPData(2, 0);
+					//Toast.makeText(getBaseContext(), "UnChecked", 	Toast.LENGTH_SHORT).show(); 
+				} 
+			}
+	    });
+	    
+	    // If CheckBox4 is Clicked 
+	    CheckBox cb4 = (CheckBox) findViewById(R.id.checkBox4); 
+	    cb4.setOnCheckedChangeListener(new OnCheckedChangeListener() 
+	    {
+			
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) 
+			{
+
+				if (buttonView.isChecked()) 
+				{ 
+					//Set temp data to 1
+					myCBData.SetTPData(3, 1);
+					//Toast.makeText(getBaseContext(), "Checked", Toast.LENGTH_SHORT).show(); 
+				} 
+				else 
+				{ 
+					//Set temp data to 0
+					myCBData.SetTPData(3, 0);
+					//Toast.makeText(getBaseContext(), "UnChecked", 	Toast.LENGTH_SHORT).show(); 
+				} 
+			}
+	    });
+	    
+	    CheckBox cb5 = (CheckBox) findViewById(R.id.checkBox5); 
+	    cb5.setOnCheckedChangeListener(new OnCheckedChangeListener() 
+	    {
+			
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) 
+			{
+
+				if (buttonView.isChecked()) 
+				{ 
+					//Set temp data to 1
+					myCBData.SetTPData(4, 1);
+					//Toast.makeText(getBaseContext(), "Checked", Toast.LENGTH_SHORT).show(); 
+				} 
+				else 
+				{ 
+					//Set temp data to 0
+					myCBData.SetTPData(4, 0);
+					//Toast.makeText(getBaseContext(), "UnChecked", 	Toast.LENGTH_SHORT).show(); 
+				} 
+			}
+	    });
+	    
+	    CheckBox cb6 = (CheckBox) findViewById(R.id.checkBox6); 
+	    cb6.setOnCheckedChangeListener(new OnCheckedChangeListener() 
+	    {
+			
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) 
+			{
+
+				if (buttonView.isChecked()) 
+				{ 
+					//Set temp data to 1
+					myCBData.SetTPData(5, 1);
+					//Toast.makeText(getBaseContext(), "Checked", Toast.LENGTH_SHORT).show(); 
+				} 
+				else 
+				{ 
+					//Set temp data to 0
+					myCBData.SetTPData(5, 0);
+					//Toast.makeText(getBaseContext(), "UnChecked", 	Toast.LENGTH_SHORT).show(); 
+				} 
+			}
+	    });
+	    
+	    CheckBox cb7 = (CheckBox) findViewById(R.id.checkBox7); 
+	    cb7.setOnCheckedChangeListener(new OnCheckedChangeListener() 
+	    {
+			
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) 
+			{
+
+				if (buttonView.isChecked()) 
+				{ 
+					//Set temp data to 1
+					myCBData.SetTPData(6, 1);
+					//Toast.makeText(getBaseContext(), "Checked", Toast.LENGTH_SHORT).show(); 
+				} 
+				else 
+				{ 
+					//Set temp data to 0
+					myCBData.SetTPData(6, 0);
+					//Toast.makeText(getBaseContext(), "UnChecked", 	Toast.LENGTH_SHORT).show(); 
+				} 
+			}
+	    });
+	    
+	    CheckBox cb8 = (CheckBox) findViewById(R.id.checkBox8); 
+	    cb8.setOnCheckedChangeListener(new OnCheckedChangeListener() 
+	    {
+			
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) 
+			{
+
+				if (buttonView.isChecked()) 
+				{ 
+					//Set temp data to 1
+					myCBData.SetTPData(7, 1);
+					//Toast.makeText(getBaseContext(), "Checked", Toast.LENGTH_SHORT).show(); 
+				} 
+				else 
+				{ 
+					//Set temp data to 0
+					myCBData.SetTPData(7, 0);
+					//Toast.makeText(getBaseContext(), "UnChecked", 	Toast.LENGTH_SHORT).show(); 
+				} 
+			}
+	    });
+	    
+	    CheckBox cb9 = (CheckBox) findViewById(R.id.checkBox9); 
+	    cb9.setOnCheckedChangeListener(new OnCheckedChangeListener() 
+	    {
+			
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) 
+			{
+
+				if (buttonView.isChecked()) 
+				{ 
+					//Set temp data to 1
+					myCBData.SetTPData(8, 1);
+					//Toast.makeText(getBaseContext(), "Checked", Toast.LENGTH_SHORT).show(); 
+				} 
+				else 
+				{ 
+					//Set temp data to 0
+					myCBData.SetTPData(8, 0);
+					//Toast.makeText(getBaseContext(), "UnChecked", 	Toast.LENGTH_SHORT).show(); 
+				} 
+			}
+	    });
+			
+	    CheckBox cb10 = (CheckBox) findViewById(R.id.checkBox10); 
+	    cb10.setOnCheckedChangeListener(new OnCheckedChangeListener() 
+	    {
+			
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) 
+			{
+
+				if (buttonView.isChecked()) 
+				{ 
+					//Set temp data to 1
+					myCBData.SetTPData(9, 1);
+					//Toast.makeText(getBaseContext(), "Checked", Toast.LENGTH_SHORT).show(); 
+				} 
+				else 
+				{ 
+					//Set temp data to 0
+					myCBData.SetTPData(9, 0);
+					//Toast.makeText(getBaseContext(), "UnChecked", 	Toast.LENGTH_SHORT).show(); 
+				} 
+			}
+	    });
+	    
+	    CheckBox cb11 = (CheckBox) findViewById(R.id.checkBox11); 
+	    cb11.setOnCheckedChangeListener(new OnCheckedChangeListener() 
+	    {
+			
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) 
+			{
+
+				if (buttonView.isChecked()) 
+				{ 
+					//Set temp data to 1
+					myCBData.SetTPData(10, 1);
+					//Toast.makeText(getBaseContext(), "Checked", Toast.LENGTH_SHORT).show(); 
+				} 
+				else 
+				{ 
+					//Set temp data to 0
+					myCBData.SetTPData(10, 0);
+					//Toast.makeText(getBaseContext(), "UnChecked", 	Toast.LENGTH_SHORT).show(); 
+				} 
+			}
+	    });
+	    
+	    CheckBox cb12 = (CheckBox) findViewById(R.id.checkBox12); 
+	    cb12.setOnCheckedChangeListener(new OnCheckedChangeListener() 
+	    {
+			
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) 
+			{
+
+				if (buttonView.isChecked()) 
+				{ 
+					//Set temp data to 1
+					myCBData.SetTPData(11, 1);
+					//Toast.makeText(getBaseContext(), "Checked", Toast.LENGTH_SHORT).show(); 
+				} 
+				else 
+				{ 
+					//Set temp data to 0
+					myCBData.SetTPData(11, 0);
+					//Toast.makeText(getBaseContext(), "UnChecked", 	Toast.LENGTH_SHORT).show(); 
+				} 
+			}
+	    });
+	    
+	    CheckBox cb13 = (CheckBox) findViewById(R.id.checkBox13); 
+	    cb13.setOnCheckedChangeListener(new OnCheckedChangeListener() 
+	    {
+			
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) 
+			{
+
+				if (buttonView.isChecked()) 
+				{ 
+					//Set temp data to 1
+					myCBData.SetTPData(12,1);
+					//Toast.makeText(getBaseContext(), "Checked", Toast.LENGTH_SHORT).show(); 
+				} 
+				else 
+				{ 
+					//Set temp data to 0
+					myCBData.SetTPData(12, 0);
+					//Toast.makeText(getBaseContext(), "UnChecked", 	Toast.LENGTH_SHORT).show(); 
+				} 
+			}
+	    });
+	    
+	    CheckBox cb14 = (CheckBox) findViewById(R.id.checkBox14); 
+	    cb14.setOnCheckedChangeListener(new OnCheckedChangeListener() 
+	    {
+			
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) 
+			{
+
+				if (buttonView.isChecked()) 
+				{ 
+					//Set temp data to 1
+					myCBData.SetTPData(13, 1);
+					//Toast.makeText(getBaseContext(), "Checked", Toast.LENGTH_SHORT).show(); 
+				} 
+				else 
+				{ 
+					//Set temp data to 0
+					myCBData.SetTPData(13, 0);
+					//Toast.makeText(getBaseContext(), "UnChecked", 	Toast.LENGTH_SHORT).show(); 
+				} 
+			}
+	    });
+	    
+	    CheckBox cb15 = (CheckBox) findViewById(R.id.checkBox15); 
+	    cb15.setOnCheckedChangeListener(new OnCheckedChangeListener() 
+	    {
+			
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) 
+			{
+
+				if (buttonView.isChecked()) 
+				{ 
+					//Set temp data to 1
+					myCBData.SetTPData(14, 1);
+					//Toast.makeText(getBaseContext(), "Checked", Toast.LENGTH_SHORT).show(); 
+				} 
+				else 
+				{ 
+					//Set temp data to 0
+					myCBData.SetTPData(14, 0);
+					//Toast.makeText(getBaseContext(), "UnChecked", 	Toast.LENGTH_SHORT).show(); 
+				} 
+			}
+	    });
+	    
+	    CheckBox cb16 = (CheckBox) findViewById(R.id.checkBox16); 
+	    cb16.setOnCheckedChangeListener(new OnCheckedChangeListener() 
+	    {
+			
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) 
+			{
+
+				if (buttonView.isChecked()) 
+				{ 
+					//Set temp data to 1
+					myCBData.SetTPData(15, 1);
+					//Toast.makeText(getBaseContext(), "Checked", Toast.LENGTH_SHORT).show(); 
+				} 
+				else 
+				{ 
+					//Set temp data to 0
+					myCBData.SetTPData(15, 0);
+					//Toast.makeText(getBaseContext(), "UnChecked", 	Toast.LENGTH_SHORT).show(); 
+				} 
+			}
+	    });
+	    
+	    CheckBox cb17 = (CheckBox) findViewById(R.id.checkBox17); 
+	    cb17.setOnCheckedChangeListener(new OnCheckedChangeListener() 
+	    {
+			
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) 
+			{
+
+				if (buttonView.isChecked()) 
+				{ 
+					//Set temp data to 1
+					myCBData.SetTPData(16, 1);
+					//Toast.makeText(getBaseContext(), "Checked", Toast.LENGTH_SHORT).show(); 
+				} 
+				else 
+				{ 
+					//Set temp data to 0
+					myCBData.SetTPData(16, 0);
+					//Toast.makeText(getBaseContext(), "UnChecked", 	Toast.LENGTH_SHORT).show(); 
+				} 
+			}
+	    });
+	    
+	    CheckBox cb18 = (CheckBox) findViewById(R.id.checkBox18); 
+	    cb18.setOnCheckedChangeListener(new OnCheckedChangeListener() 
+	    {
+			
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) 
+			{
+
+				if (buttonView.isChecked()) 
+				{ 
+					//Set temp data to 1
+					myCBData.SetTPData(17, 1);
+					//Toast.makeText(getBaseContext(), "Checked", Toast.LENGTH_SHORT).show(); 
+				} 
+				else 
+				{ 
+					//Set temp data to 0
+					myCBData.SetTPData(17, 0);
+					//Toast.makeText(getBaseContext(), "UnChecked", 	Toast.LENGTH_SHORT).show(); 
+				} 
+			}
+	    });
+	    
+	    CheckBox cb19 = (CheckBox) findViewById(R.id.checkBox19); 
+	    cb19.setOnCheckedChangeListener(new OnCheckedChangeListener() 
+	    {
+			
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) 
+			{
+
+				if (buttonView.isChecked()) 
+				{ 
+					//Set temp data to 1
+					myCBData.SetTPData(18, 1);
+					//Toast.makeText(getBaseContext(), "Checked", Toast.LENGTH_SHORT).show(); 
+				} 
+				else 
+				{ 
+					//Set temp data to 0
+					myCBData.SetTPData(18, 0);
+					//Toast.makeText(getBaseContext(), "UnChecked", 	Toast.LENGTH_SHORT).show(); 
+				} 
+			}
+	    });
+	    
+	    CheckBox cb20 = (CheckBox) findViewById(R.id.checkBox20); 
+	    cb20.setOnCheckedChangeListener(new OnCheckedChangeListener() 
+	    {
+			
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) 
+			{
+
+				if (buttonView.isChecked()) 
+				{ 
+					//Set temp data to 1
+					myCBData.SetTPData(19, 1);
+					//Toast.makeText(getBaseContext(), "Checked", Toast.LENGTH_SHORT).show(); 
+				} 
+				else 
+				{ 
+					//Set temp data to 0
+					myCBData.SetTPData(19, 0);
+					//Toast.makeText(getBaseContext(), "UnChecked", 	Toast.LENGTH_SHORT).show(); 
+				} 
+			}
+	    });
+	    
+	    CheckBox cb21 = (CheckBox) findViewById(R.id.checkBox21); 
+	    cb21.setOnCheckedChangeListener(new OnCheckedChangeListener() 
+	    {
+			
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) 
+			{
+
+				if (buttonView.isChecked()) 
+				{ 
+					//Set temp data to 1
+					myCBData.SetTPData(20, 1);
+					//Toast.makeText(getBaseContext(), "Checked", Toast.LENGTH_SHORT).show(); 
+				} 
+				else 
+				{ 
+					//Set temp data to 0
+					myCBData.SetTPData(20, 0);
+					//Toast.makeText(getBaseContext(), "UnChecked", 	Toast.LENGTH_SHORT).show(); 
+				} 
+			}
+	    });
+	    
+	    CheckBox cb22 = (CheckBox) findViewById(R.id.checkBox22); 
+	    cb22.setOnCheckedChangeListener(new OnCheckedChangeListener() 
+	    {
+			
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) 
+			{
+
+				if (buttonView.isChecked()) 
+				{ 
+					//Set temp data to 1
+					myCBData.SetTPData(21, 1);
+					//Toast.makeText(getBaseContext(), "Checked", Toast.LENGTH_SHORT).show(); 
+				} 
+				else 
+				{ 
+					//Set temp data to 0
+					myCBData.SetTPData(21, 0);
+					//Toast.makeText(getBaseContext(), "UnChecked", 	Toast.LENGTH_SHORT).show(); 
+				} 
+			}
+	    });
+        
+	    CheckBox cb23 = (CheckBox) findViewById(R.id.checkBox23); 
+	    cb23.setOnCheckedChangeListener(new OnCheckedChangeListener() 
+	    {
+			
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) 
+			{
+
+				if (buttonView.isChecked()) 
+				{ 
+					//Set temp data to 1
+					myCBData.SetTPData(22, 1);
+					//Toast.makeText(getBaseContext(), "Checked", Toast.LENGTH_SHORT).show(); 
+				} 
+				else 
+				{ 
+					//Set temp data to 0
+					myCBData.SetTPData(22, 0);
+					//Toast.makeText(getBaseContext(), "UnChecked", 	Toast.LENGTH_SHORT).show(); 
+				} 
+			}
+	    });
+	    
+	    CheckBox cb24 = (CheckBox) findViewById(R.id.checkBox24); 
+	    cb24.setOnCheckedChangeListener(new OnCheckedChangeListener() 
+	    {
+			
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) 
+			{
+
+				if (buttonView.isChecked()) 
+				{ 
+					//Set temp data to 1
+					myCBData.SetTPData(23, 1);
+					//Toast.makeText(getBaseContext(), "Checked", Toast.LENGTH_SHORT).show(); 
+				} 
+				else 
+				{ 
+					//Set temp data to 0
+					myCBData.SetTPData(23, 0);
+					//Toast.makeText(getBaseContext(), "UnChecked", 	Toast.LENGTH_SHORT).show(); 
+				} 
+			}
+	    });
+	    
+	    // TODO Auto-generated method stub
+	}
+	
+	
+	
+	
+	
+
+	public void box1OnClick(View box1View)
+	{
+		/*
+		 if (checkBox1.isChecked()) {
+	            //checkBox1.setChecked(false);
+	        	DayView.setText(myWeek.getArtElt(5));
+	        }
+	        */
+	}
+	
+	public void NextOnClick(View NextView)
+    {
+
+
+    }
+	
+    public void BackToMain1OnClick(View BackToMain1View)
+    {
+        Intent intent = new Intent();
+        setResult(RESULT_OK, intent);
+        finish();
+    }
+	
+    private void SavePreferences(String key, String value)
+    {
+        SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(key, value);
+        editor.commit();
+     }
+    
+    private void LoadPreferences()
+    {
+        SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
+        String strSavedMem1 = sharedPreferences.getString("MEM1", "");
+        String strSavedMem2 = sharedPreferences.getString("MEM2", "");
+        //textSavedMem1.setText(strSavedMem1);
+        //textSavedMem2.setText(strSavedMem2);
+    }
+    
+
+}

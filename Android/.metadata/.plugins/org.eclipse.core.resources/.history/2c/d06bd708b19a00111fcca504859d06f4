@@ -1,0 +1,42 @@
+package usc.cs.survey;
+
+import android.app.Application;
+
+public class CheckBoxData extends Application {
+	
+	// temp data for each checkBox and combine them latter
+	private int[] tempData = new int [24];
+    //The String to save 
+    private StringBuffer MonAvailableHrs = new StringBuffer();
+	
+	public CheckBoxData()
+	{
+	
+	}
+	
+	public void SetTPData(int index, int val)
+	{
+		tempData[index] = val;
+	}
+	
+	public int GetTPData(int index)
+	{
+		return tempData[index];
+	}
+	
+	public int[] GetTPAry()
+	{
+		return tempData;
+	}
+	
+	public void AppendAvailableHrs(int value)
+	{
+		MonAvailableHrs.append(value);
+	}
+	
+	public StringBuffer GetAvailableHrs()
+	{
+		return MonAvailableHrs;
+	}
+	
+}
