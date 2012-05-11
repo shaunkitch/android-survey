@@ -1,0 +1,19 @@
+package usc.cs.survey;
+
+import java.util.ArrayList;
+
+public class Week {
+	private ArrayList<String> WeekAry = new ArrayList<String>();
+    public Week()
+    {
+    	WeekAry.add("Monday");
+	    WeekAry.add("Tuesday");
+	    WeekAry.add("Wednesday");
+	    WeekAry.add("Thursday");
+	    WeekAry.add("Friday");
+	    WeekAry.add("Saturday");
+	    WeekAry.add("Sunday");
+    }
+
+
+}

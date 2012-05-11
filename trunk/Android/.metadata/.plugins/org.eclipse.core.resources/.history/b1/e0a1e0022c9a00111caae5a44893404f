@@ -1,0 +1,28 @@
+package usc.cs.survey;
+
+import java.util.ArrayList;
+
+import android.app.Application;
+
+public class Week extends Application  {
+	
+	private ArrayList<String> WeekAry = new ArrayList<String>();
+	
+    public Week()
+    {
+    	WeekAry.add("Monday");
+	    WeekAry.add("Tuesday");
+	    WeekAry.add("Wednesday");
+	    WeekAry.add("Thursday");
+	    WeekAry.add("Friday");
+	    WeekAry.add("Saturday");
+	    WeekAry.add("Sunday");
+    }
+    public String getArtElt(int num)
+    {
+		return WeekAry.get(num);	
+    }
+
+    
+    
+}

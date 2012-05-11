@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, Survey!</string>
+    <string name="app_name">Survey</string>
+    <string name="NoSurvey">No survey available now.</string>
+    <string name="StartAnswerSurvey">Start Answering Survey</string>
+    <string name="Schedule">&quot;Schedule the best time for you to answer the survey &quot;</string>
+    <string name="BackToMain1">Back</string>
+    <string name="Monday">Monday</string>
+    <string name="hr0001">0~1AM</string>
+    <string name="hr0102">1~2AM</string>
+    <string name="hr0203">2~3AM</string>
+    <string name="hr0304">3~4AM</string>
+    <string name="hr0405">4~5AM</string>
+    <string name="hr0506">5~6AM</string>
+    <string name="hr0607">6~7AM</string>
+    <string name="hr0708">7~8AM</string>
+    <string name="hr0809">8~9AM</string>
+    <string name="hr0910">9~10AM</string>
+    <string name="hr1011">10~11AM</string>
+    <string name="hr1112">11~12AM</string>
+    <string name="hr1213">12~01PM</string>
+
+</resources>
